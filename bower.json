@@ -1,0 +1,29 @@
+{
+  "name": "angular-seed",
+  "version": "0.0.0",
+  "authors": [
+    "epayet <jakspinning@gmail.com>"
+  ],
+  "description": "test",
+  "keywords": [
+    "angular",
+    "seed"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular-route": "~1.2.16",
+    "bootstrap": "~3.1.1",
+    "angular-resource": "~1.2.16",
+    "angular-bootstrap": "~0.11.0",
+    "angular-local-storage": "~0.0.3",
+    "angular-util-services": "*"
+  }
+}
