@@ -9,11 +9,12 @@ var minifyCSS = require('gulp-minify-css');
 var connect = require('gulp-connect');
 var runSequence = require('run-sequence');
 
-var port = 8080;
+var port = 8000;
 
 var paths = {
     appScripts: "app/js/**",
-    vendorScripts: "build/lib/**/*.js",
+    //specify order
+    vendorScripts: ["build/lib/jquery/**/*.js", "build/lib/angular/**/*.js", "build/lib/**/*.js"],
     appCss: "app/css/**/*.css",
     vendorCss: "build/lib/**/*.css"
 };
@@ -40,32 +41,32 @@ gulp.task("server", function() {
 //Minify app js files
 gulp.task("appScripts", function() {
     return gulp.src(paths.appScripts)
-        .pipe(uglify())
         .pipe(concat("app.min.js"))
+        .pipe(uglify())
         .pipe(gulp.dest("public/js"))
 });
 
 //Minify and concat every css from app into app.css
 gulp.task("appCss", function() {
     return gulp.src(paths.appCss)
-        .pipe(minifyCSS({keepSpecialComments: 0}))
         .pipe(concatCss("app.min.css"))
+        .pipe(minifyCSS({keepSpecialComments: 0}))
         .pipe(gulp.dest("public/css"));
 });
 
 //Minify js files from bower into one vendor.js
 gulp.task("vendorScripts", ['bower-files'], function() {
     return gulp.src(paths.vendorScripts)
-        .pipe(uglify())
         .pipe(concat("vendor.min.js"))
+        .pipe(uglify())
         .pipe(gulp.dest("public/js"))
 });
 
 //Same for css files
 gulp.task("vendorCss", ["bower-files"], function() {
     return gulp.src(paths.vendorCss)
-        .pipe(minifyCSS())
         .pipe(concatCss("vendor.min.css"))
+        .pipe(minifyCSS())
         .pipe(gulp.dest("public/css"));
 });
 

@@ -1,0 +1,15 @@
+<h1>Examples</h1>
+
+<ul>
+    <li ng-repeat="example in examples">
+        <a href="#/example/{{example.name}}">{{example.name}}</a>
+        <button ng-click="sayHello(example.name)" class="btn btn-primary btn-sm">Say hello</button>
+    </li>
+</ul>
+
+<form ng-submit="addExample()">
+    <input ng-model="newExampleName" placeholder="new" />
+    <button type="submit" class="btn btn-primary btn-sm">Add</button>
+</form>
+
+Hello {{currentHello}}
