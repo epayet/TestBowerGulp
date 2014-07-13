@@ -8,6 +8,7 @@ var concatCss = require('gulp-concat-css');
 var minifyCSS = require('gulp-minify-css');
 var connect = require('gulp-connect');
 var runSequence = require('run-sequence');
+var size = require('gulp-size');
 
 var port = 8000;
 
@@ -43,6 +44,7 @@ gulp.task("appScripts", function() {
     return gulp.src(paths.appScripts)
         .pipe(concat("app.min.js"))
         .pipe(uglify())
+        .pipe(size())
         .pipe(gulp.dest("public/js"))
 });
 
@@ -59,6 +61,7 @@ gulp.task("vendorScripts", ['bower-files'], function() {
     return gulp.src(paths.vendorScripts)
         .pipe(concat("vendor.min.js"))
         .pipe(uglify())
+        .pipe(size())
         .pipe(gulp.dest("public/js"))
 });
 

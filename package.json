@@ -16,9 +16,9 @@
     "gulp-uglify": "~0.2.1",
     "karma": "~0.12.16",
     "karma-jasmine": "~0.1.5",
-    "karma-chrome-launcher": "~0.1.4"
+    "karma-chrome-launcher": "~0.1.4",
+    "gulp-size": "^0.4.0"
   },
-  "dependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
